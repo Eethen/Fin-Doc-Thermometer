@@ -8,14 +8,16 @@ p = Producer({'bootstrap.servers': '**********:9092'})
 
 client = boto3.client('s3')
 
-
+##
 while True:
+    ## connect to S3
     obj = client.get_object(Bucket='******', Key='streaming/sp1.csv')
     
+    ## stream out record one by one
     for line in obj['Body'].read().split():
-        line = line.decode("utf-8").split(",") # to list the string
+        line = line.decode("utf-8").split(",")
         
-        line[2] = dt.strftime(dt.now(timezone('UTC')), "%H:%M:%S")
+        line[2] = dt.strftime(dt.now(timezone('UTC')), "%H:%M:%S") # attach real-time time stamp
         key = line[0] # Key: ip
         line = ','.join(line) # to string
         
