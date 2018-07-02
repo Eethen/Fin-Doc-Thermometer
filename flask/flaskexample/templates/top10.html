@@ -1,35 +1,36 @@
 <html>
     <head>
-        <link href="../static/css/c3.css" rel="stylesheet">
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="../static/js/c3.min.js"></script>
-        <script type="text/JavaScript">
+        <link href   = "../static/css/c3.css" rel = "stylesheet">
+        <script src  = "https://d3js.org/d3.v5.min.js"></script>
+        <script src  = "../static/js/c3.min.js"></script>
+        <script type = "text/JavaScript">
             function AutoRefresh( t ) {
                 setTimeout("location.reload(true);", t);
             }
         </script>
         
         <title>{{title}} - microblog</title>
-        <style TYPE="text/css">
+        <style TYPE = "text/css">
             th{font-family: Georgia; font-size: 18pt;}
             td{font-family: Georgia; font-size: 15pt;}
             h1{font-family: Georgia; font-size: 25pt;}
             
         </style>
+        
         <style>
             table {
-                width:100%;
+                width: 100%;
             }
             table {
                 front-family: "Georgia"
-                front-size: 150%
+                front-size  : 150%
             }
             table, th, td {
                 border: 1px solid black;
                 border-collapse: collapse;
             }
             th, td {
-                padding: 15px;
+                padding   : 15px;
                 text-align: center;
             }
             table tr:nth-child(even) {
@@ -40,14 +41,14 @@
             }
             table th {
                 background-color: black;
-                color: white;
+                color           : white;
             }
         </style>
     </head>
     
-    <body onload="JavaScript:AutoRefresh(10000);" >
+    <body onload  = "JavaScript:AutoRefresh(10000);" >
 
-        <h1 align="center">Top 10  Till Now </h1>
+        <h1 align = "center">Top 10  Till Now</h1>
         <table>
             <tr>
                 <th>Rank</th>
@@ -107,7 +108,7 @@
         </table>
         
         <br>
-        <h1 align="center">Top 10  in Last 10 Seconds </h1>
+        <h1 align = "center">Top 10  in Last 10 Seconds </h1>
         <table>
             <tr>
                 <th>Rank</th>
