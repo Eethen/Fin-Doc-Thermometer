@@ -11,7 +11,7 @@ The whole system is illustrated as follows:
 
 
 ## Folder Map
-### Folder \\ \\ \\     Content
+#### DataDownload: a script that downloads, unzips and uploads to AWS S3 bucket, the historical data.
 
 
 ## Background
