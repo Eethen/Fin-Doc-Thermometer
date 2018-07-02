@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <link href="../static/css/c3.css" rel="stylesheet">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="../static/js/c3.min.js"></script>
+        <script type="text/JavaScript">
+            function AutoRefresh( t ) {
+                setTimeout("location.reload(true);", t);
+            }
+        </script>
+        
+        <title>{{title}} - microblog</title>
+        <style TYPE="text/css">
+            th{font-family: Georgia; font-size: 18pt;}
+            td{font-family: Georgia; font-size: 15pt;}
+            h1{font-family: Georgia; font-size: 25pt;}
+            
+        </style>
+        <style>
+            table {
+                width:100%;
+            }
+            table {
+                front-family: "Georgia"
+                front-size: 150%
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 15px;
+                text-align: center;
+            }
+            table tr:nth-child(even) {
+                background-color: #eee;
+            }
+            table tr:nth-child(odd) {
+                background-color: #fff;
+            }
+            table th {
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+    
+    <body onload="JavaScript:AutoRefresh(10000);" >
+
+        <h1 align="center">Top 10  Till Now </h1>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Company ID</th>
+                <th>Total Visits</th>
+            </tr>
+            <tr>
+                <td>No. 1: </td>
+                <td>{{ranksAll.r1[0]}}</td>
+                <td>{{ranksAll.r1[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 2: </td>
+                <td>{{ranksAll.r2[0]}}</td>
+                <td>{{ranksAll.r2[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 3: </td>
+                <td>{{ranksAll.r3[0]}}</td>
+                <td>{{ranksAll.r3[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 4: </td>
+                <td>{{ranksAll.r4[0]}}</td>
+                <td>{{ranksAll.r4[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 5: </td>
+                <td>{{ranksAll.r5[0]}}</td>
+                <td>{{ranksAll.r5[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 6: </td>
+                <td>{{ranksAll.r6[0]}}</td>
+                <td>{{ranksAll.r6[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 7: </td>
+                <td>{{ranksAll.r7[0]}}</td>
+                <td>{{ranksAll.r7[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 8: </td>
+                <td>{{ranksAll.r8[0]}}</td>
+                <td>{{ranksAll.r8[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 9: </td>
+                <td>{{ranksAll.r9[0]}}</td>
+                <td>{{ranksAll.r9[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 10: </td>
+                <td>{{ranksAll.r10[0]}}</td>
+                <td>{{ranksAll.r10[1]}}</td>
+            </tr>
+        </table>
+        
+        <br>
+        <h1 align="center">Top 10  in Last 10 Seconds </h1>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Company ID</th>
+                <th>Total Visits</th>
+            </tr>
+            <tr>
+                <td>No. 1: </td>
+                <td>{{ranksNow.r1[0]}}</td>
+                <td>{{ranksNow.r1[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 2: </td>
+                <td>{{ranksNow.r2[0]}}</td>
+                <td>{{ranksNow.r2[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 3: </td>
+                <td>{{ranksNow.r3[0]}}</td>
+                <td>{{ranksNow.r3[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 4: </td>
+                <td>{{ranksNow.r4[0]}}</td>
+                <td>{{ranksNow.r4[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 5: </td>
+                <td>{{ranksNow.r5[0]}}</td>
+                <td>{{ranksNow.r5[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 6: </td>
+                <td>{{ranksNow.r6[0]}}</td>
+                <td>{{ranksNow.r6[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 7: </td>
+                <td>{{ranksNow.r7[0]}}</td>
+                <td>{{ranksNow.r7[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 8: </td>
+                <td>{{ranksNow.r8[0]}}</td>
+                <td>{{ranksNow.r8[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 9: </td>
+                <td>{{ranksNow.r9[0]}}</td>
+                <td>{{ranksNow.r9[1]}}</td>
+            </tr>
+            <tr>
+                <td>No. 10: </td>
+                <td>{{ranksNow.r10[0]}}</td>
+                <td>{{ranksNow.r10[1]}}</td>
+            </tr>
+        </table>
+    </body>
+</html>
+
+

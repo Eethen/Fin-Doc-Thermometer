@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link href="../static/css/c3.css" rel="stylesheet">
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="../static/js/c3.min.js"></script>
+        
+        <style TYPE="text/css">
+            h1{font-family: Georgia; font-size: 25pt;}
+        </style>
+        
+        <script type="text/JavaScript">
+            function AutoRefresh( t ) {
+                setTimeout("location.reload(true);", t);
+            }
+        </script>
+        
+        <title>{{title}} - microblog</title>
+    </head>
+    
+    <body onload="JavaScript:AutoRefresh(5000);" >
+        <h1 align="center"> Total Visits by Second </h1>
+        
+        <div id="chart"></div>
+    </body>
+</html>
+
+<script type="text/JavaScript">
+    var data = [
+                {{data_redis|safe}},
+                {{data_25|safe}},
+                {{data_75|safe}},
+                {{data_95|safe}},
+    ]
+                 
+    var chart = c3.generate({
+                            data: {
+                                columns: data,
+                                types: {
+                                    data_redis: 'line',
+                                    data_25: 'line',
+                                    data_75: 'line',
+                                    data_95: 'line',
+                                },
+                            },
+                            axis: {
+                                y: {
+                                    label: {
+                                        text: 'Total Visits',
+                                        position: 'outer-middle'
+                                    }
+                                },
+                            }
+    });
+    
+<!--    chart.hide(['data_25', 'data_75', 'data_95]);-->
+<!--    chart.show(['data_25', 'data_75', 'data_95]);-->
+
+</script>
