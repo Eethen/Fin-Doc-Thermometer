@@ -27,7 +27,15 @@ The whole system is illustrated as follows:
 
 
 ## Background and Motivation
-US Securities and Exchange Commission require companies to file registration statements and periodic reports. All those information are available to the public and are well studied by researchers and investors. This system enables users, such as data analysts and quantitative analysts, to track what the most visited companies are in real-time manner and 
+
+### Background:
+US Securities and Exchange Commission require companies to file registration statements and periodic reports. All those information are available to the public and are well studied by researchers and investors. 
+
+### Data:
+Historical data from June 2017 to January 2003 are available in CSV files from US Securities and Exchange Commission website. The data are stored by day and come with fields, such as IP, date, time, CIK, accession and extension. While IP, date and time are self-evident, CIK is an unique ID to each filer, and accession along with extension can uniquely determine a specific document given a CIK. 
+
+### Motivation
+This system is intended to enable users, such as data analysts and quantitative analysts, to track the most visited companies in a real-time manner and to leverage historical information to help describe the visitors' activeness in general.
 
 
 ## Streaming Data Processing
