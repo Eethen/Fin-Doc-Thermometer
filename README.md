@@ -14,10 +14,15 @@ The whole system is illustrated as follows:
 
 ## Folder Map
 **DataDownload**  : a script that downloads, unzips and uploads to AWS S3 bucket, the historical data.
+
 **Images**        : a pipeline .png file as shown above.
+
 **Kafka**         : a python script that updates the historical data in S3 with real-time time stamp and publishes them to the Kafka cluster.
+
 **Spark**         : a bash script and a python script that generate, and store to PostgreSQL, the 25th, the 75th and the 95th percentiles by second.
+
 **SparkStreming** : a bash script and a python script that track, and store to Redis, the total visits by company ID and by time.
+
 **Flask**         : Python and HTML scripts that establish the Graphical User Interface.
 
 
