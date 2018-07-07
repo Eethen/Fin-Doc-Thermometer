@@ -53,7 +53,7 @@ class Producer:
                                       value = line,
                                       key   = key)
         
-                p.flush()
+                self.producer.flush()
 
 
 ##################################################################
