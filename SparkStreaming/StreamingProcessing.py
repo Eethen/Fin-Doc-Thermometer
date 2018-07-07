@@ -61,12 +61,26 @@ class StreamingProcessing:
                                 .map(lambda line: line.split(","))\
                                 .map(lambda line: [line[2], line[4]])\
                                 .cache()
-
+        """
+           .map: [..., 'record1, record2, ...', ...] -> ['record1, record2, ...']
+           .map: ['record1, record2, ...']           -> [['record1'], ['record2'], ...]
+           .map: [['record1'], ['record2'], ...]     -> [['time', 'company'], ...]
+        """
+        
         totalBytimes   = raw.map(lambda x: (x[0], 1))\
                             .reduceByKey(lambda x, y: x + y)
+        """
+          .map        : [['time', 'company'], ...] -> [('time', 1), ...]
+          .reduceByKey: [('time', 1), ...]         -> [(time1, total1), (time2, total2), ...]
+        """
+        
         totalBycompany = raw.map(lambda x: (x[1], 1))\
                             .reduceByKey(lambda x, y: x + y)
-                                     
+        """
+          .map        : [['time', 'company'], ...] -> [('company', 1), ...]
+          .reduceByKey: [('company', 1), ...]      -> [('company1', total1), ('company2', total2), ...]
+        """
+        
         totalBytimes.foreachRDD(lambda x: save_totalBytime(x.collect()))
         totalBycompany.foreachRDD(lambda x: save_totalBycompany(x.collect()))
                                      
