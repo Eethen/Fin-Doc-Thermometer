@@ -14,6 +14,7 @@ The whole system is illustrated as follows:
 **Kafka:**           receives and buffers real-time data from S3
 
 **Spark Streaming:** consumes real-time data from Kafka and calculates total visits by second and total visits by second and company
+
 **Redis:**           receives from Spark Streaming and holds total visits by second and total visits by second and company
 
 **Spark:**           loads historical data from S3, generates statistics and save them to PostgreSQL
