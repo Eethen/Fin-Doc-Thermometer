@@ -60,14 +60,14 @@ class Percentiles:
                                  np.percentile(x[1], 95)])\
                  .foreachPartition(self.insert)
         """
-           .map:        ['record, record, ...']        -> ['record', 'record', ...]
-           .map:        ['record', 'record', ...]      -> [['date', 'time'], ...]
-           .map:        [['date', 'time'], ...]        -> [('date,time', 1), ...]
-           .map:        [('date,time', 1), ...]        -> [('date,time', N), ...]
-           .map:        [('date,time', N), ...]        -> [('time', N), ...]
-           .groupByKey: [('time', N), ...]             -> [('time', (N1, N2,..)), ...]
-           .mapyValues: [('time', (N1, N2, ...)), ...] -> [('time', [N1, N2,..]), ...]
-           .map:        [('time', [N1, N2, ...]), ...] -> [['time', 25th percentile, 25th percentile, 25th percentile], ...]
+           .map        : ['record, record, ...']        -> ['record', 'record', ...]
+           .map        : ['record', 'record', ...]      -> [['date', 'time'], ...]
+           .map        : [['date', 'time'], ...]        -> [('date,time', 1), ...]
+           .reduceByKey: [('date,time', 1), ...]        -> [('date,time', N), ...]
+           .map        : [('date,time', N), ...]        -> [('time', N), ...]
+           .groupByKey : [('time', N), ...]             -> [('time', (N1, N2,..)), ...]
+           .mapyValues : [('time', (N1, N2, ...)), ...] -> [('time', [N1, N2,..]), ...]
+           .map        : [('time', [N1, N2, ...]), ...] -> [['time', 25th percentile, 25th percentile, 25th percentile], ...]
         """
                                                 
 ##################################################################
