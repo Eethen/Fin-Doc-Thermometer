@@ -51,7 +51,7 @@ class Percentiles:
                  .map(lambda x: [x[1], x[2]])\
                  .map(lambda x: (','.join(x), 1))\
                  .reduceByKey(lambda a, b: a + b)\
-                 .map(lambda x: (((x[0]).split(','))[1], x[1]) )\
+                 .map(lambda x: (((x[0]).split(','))[1], x[1]))\
                  .groupByKey()\
                  .mapValues(list)\
                  .map(lambda x: [x[0],
@@ -59,8 +59,17 @@ class Percentiles:
                                  np.percentile(x[1], 75),
                                  np.percentile(x[1], 95)])\
                  .foreachPartition(self.insert)
-    
-
+        """
+           .map:        ['record, record, ...']        -> ['record', 'record', ...]
+           .map:        ['record', 'record', ...]      -> [['date', 'time'], ...]
+           .map:        [['date', 'time'], ...]        -> [('date,time', 1), ...]
+           .map:        [('date,time', 1), ...]        -> [('date,time', N), ...]
+           .map:        [('date,time', N), ...]        -> [('time', N), ...]
+           .groupByKey: [('time', N), ...]             -> [('time', (N1, N2,..)), ...]
+           .mapyValues: [('time', (N1, N2, ...)), ...] -> [('time', [N1, N2,..]), ...]
+           .map:        [('time', [N1, N2, ...]), ...] -> [['time', 25th percentile, 25th percentile, 25th percentile], ...]
+        """
+                                                
 ##################################################################
 if __name__ == "__main__":
                                                 
