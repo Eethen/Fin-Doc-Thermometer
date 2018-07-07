@@ -11,12 +11,16 @@ The system consists of a streaming pipeline and a batch pipeline. The streaming 
 The whole system is illustrated as follows:
 ![Pipeline Image](https://github.com/Eethen/Fin-Doc-Thermometer/blob/master/Images/Screen%20Shot%202018-07-02%20at%202.35.16%20PM.png)
 
-**Kafka:**  receives and buffers real-time data from S3
+**Kafka:**           receives and buffers real-time data from S3
+
 **Spark Streaming:** consumes real-time data from Kafka and calculates total visits by second and total visits by second and company
-**Redis:** receives from Spark Streaming and holds total visits by second and total visits by second and company
-**Spark:** loads historical data from S3, generates statistics and save them to PostgreSQL
-**PostgreSQL:** saves raw data and the calculated statistics
-**Flask:** displays real-time result from Redis and calculated statistics from PostgreSQL
+**Redis:**           receives from Spark Streaming and holds total visits by second and total visits by second and company
+
+**Spark:**           loads historical data from S3, generates statistics and save them to PostgreSQL
+
+**PostgreSQL:**      saves raw data and the calculated statistics
+
+**Flask:**           displays real-time result from Redis and calculated statistics from PostgreSQL
 
 
 ## Github Repo Structure
